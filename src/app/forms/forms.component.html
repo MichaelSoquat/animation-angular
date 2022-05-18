@@ -1,0 +1,22 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <label for="Name">Name:</label>
+    <input name="Name" ngModel required type="text">
+    <label for="email">Email:</label>
+    <input #email="ngModel" name="email" ngModel email required type="email">
+    <p *ngIf="email.invalid && email.touched">Please enter a valid email address!</p>
+    <button [disabled]="f.invalid" type="submit">Send</button>
+</form>
+<h2 [@divState]="state">Hey</h2>
+<h3 [@divState2]="state">Hallo</h3>
+
+<button (click)="animate()">Animate</button>
+<button (click)="shrink()">Shrink</button>
+<form [formGroup]="signUpForm" (ngSubmit)="onSub()">
+
+    <label for="username">Username</label>
+    <input formControlName="username" type="text" name="username">
+    <span *ngIf="!signUpForm.get('username').valid && signUpForm.get('username').touched">Please enter a valid username</span>
+    <label for="email">Email</label>
+    <input formControlName="email" type="email" name="email">
+    <button type="submit">Send</button>
+</form>

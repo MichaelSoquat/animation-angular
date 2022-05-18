@@ -1,0 +1,6 @@
+<p *ngFor="let name of michael">
+    {{name}}</p>
+
+
+<input type="text" #text>
+<button (click)="giveToParent(text.value)">giveToParent</button>
